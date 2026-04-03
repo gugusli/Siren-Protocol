@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://dpacdpnl0dimu"]
+
+[ext_resource type="Script" path="res://entities/enemies/bosses/boss.gd" id="1_boss"]
+[ext_resource type="Script" uid="uid://b5smixm7242yb" path="res://components/combat/Hurtbox.gd" id="2_ywr2e"]
+[ext_resource type="Script" uid="uid://cb4wv5s31n7jk" path="res://components/combat/Hitbox.gd" id="3_hcw5u"]
+[ext_resource type="Script" uid="uid://byrt5hlv2fhrp" path="res://components/combat/Damageable.gd" id="4_4refm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_82qr8"]
+size = Vector2(35, 39)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_kt0nt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i8idp"]
+size = Vector2(36, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gcg0s"]
+size = Vector2(35.5, 37)
+
+[node name="Boss" type="CharacterBody2D" unique_id=1667438238]
+position = Vector2(183, 9)
+collision_layer = 2
+script = ExtResource("1_boss")
+speed = 120.0
+can_enrage = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1902973300]
+position = Vector2(16.5, 10.5)
+shape = SubResource("RectangleShape2D_82qr8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=862773338]
+position = Vector2(16.249998, 11.000001)
+scale = Vector2(33.499996, 36.000004)
+texture = SubResource("CanvasTexture_kt0nt")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=739332558]
+position = Vector2(11, 15)
+script = ExtResource("2_ywr2e")
+damage = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1980975109]
+modulate = Color(0.7181005, 0.6219942, 1.92523e-07, 1)
+position = Vector2(5, -3)
+shape = SubResource("RectangleShape2D_i8idp")
+debug_color = Color(0.66775566, 0.5109517, 0, 0.41960785)
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=2113900287]
+position = Vector2(11, 15)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("3_hcw5u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1039289327]
+position = Vector2(5.25, -3.5)
+shape = SubResource("RectangleShape2D_gcg0s")
+debug_color = Color(0.52873915, 0.41420978, 1, 0.41960785)
+
+[node name="Damageable" type="Node" parent="." unique_id=1752824412]
+script = ExtResource("4_4refm")

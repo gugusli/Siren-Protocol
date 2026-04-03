@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://b0us7n1mistyp"]
+
+[ext_resource type="Script" uid="uid://cqhtqw1wraqjx" path="res://entities/enemies/common/Enemy.gd" id="1_ktxhy"]
+[ext_resource type="PackedScene" uid="uid://bukux6umgnwli" path="res://entities/items/ExperienceGem.tscn" id="2_k3oet"]
+[ext_resource type="Script" uid="uid://cb4wv5s31n7jk" path="res://components/combat/Hitbox.gd" id="2_qqu5c"]
+[ext_resource type="Script" uid="uid://b5smixm7242yb" path="res://components/combat/Hurtbox.gd" id="2_rfvys"]
+[ext_resource type="Shader" uid="uid://bhomcu6h4q0wc" path="res://entities/enemies/common/EnemyColor.gdshader" id="3_cp1ls"]
+[ext_resource type="Script" uid="uid://byrt5hlv2fhrp" path="res://components/combat/Damageable.gd" id="3_dqsgq"]
+[ext_resource type="PackedScene" uid="uid://d0pifktgudkis" path="res://entities/items/HealthPotion.tscn" id="4_mityd"]
+[ext_resource type="PackedScene" uid="uid://magnet123" path="res://entities/items/ExperienceMagnet.tscn" id="5_5vuiw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cp1ls"]
+shader = ExtResource("3_cp1ls")
+shader_parameter/flash_modifier = 0.0
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_82qr8"]
+size = Vector2(26, 31)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mityd"]
+shader = ExtResource("3_cp1ls")
+shader_parameter/flash_modifier = 0.0
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_kt0nt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i8idp"]
+size = Vector2(26, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gcg0s"]
+size = Vector2(26, 30.375)
+
+[node name="Enemy" type="CharacterBody2D" unique_id=191734971]
+modulate = Color(0.8848449, 0.056882508, 4.813075e-07, 1)
+material = SubResource("ShaderMaterial_cp1ls")
+position = Vector2(183, 9)
+collision_layer = 2
+script = ExtResource("1_ktxhy")
+speed = 170.0
+exp_gem_scene = ExtResource("2_k3oet")
+health_potion_scene = ExtResource("4_mityd")
+magnet_scene = ExtResource("5_5vuiw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=308156417]
+position = Vector2(17, 11.5)
+shape = SubResource("RectangleShape2D_82qr8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=383571224]
+material = SubResource("ShaderMaterial_mityd")
+position = Vector2(16.999996, 11.5)
+scale = Vector2(25.99999, 30.999998)
+texture = SubResource("CanvasTexture_kt0nt")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=2017705105]
+position = Vector2(11, 15)
+script = ExtResource("2_rfvys")
+damage = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=962082739]
+modulate = Color(0.7181005, 0.6219942, 1.92523e-07, 1)
+position = Vector2(6, -3.5)
+shape = SubResource("RectangleShape2D_i8idp")
+debug_color = Color(0.66775566, 0.5109517, 0, 0.41960785)
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=398803634]
+position = Vector2(11, 15)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("2_qqu5c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=385555296]
+position = Vector2(6.25, -3.5)
+shape = SubResource("RectangleShape2D_gcg0s")
+debug_color = Color(0.52873915, 0.41420978, 1, 0.41960785)
+
+[node name="Damageable" type="Node" parent="." unique_id=1404159636]
+script = ExtResource("3_dqsgq")

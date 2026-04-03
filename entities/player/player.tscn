@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://ta31i7jhjt3k"]
+
+[ext_resource type="Script" uid="uid://b7mwhhgdfkmya" path="res://entities/player/player.gd" id="1_15tap"]
+[ext_resource type="PackedScene" uid="uid://cx5ploy48fxr5" path="res://entities/proyectiles/bullet.tscn" id="2_ru62r"]
+[ext_resource type="PackedScene" uid="uid://ctaymm2kv34sk" path="res://entities/proyectiles/BouncingBullet.tscn" id="3_8fjmc"]
+[ext_resource type="Texture2D" uid="uid://dcykghyptt2g2" path="res://assets/sprites/east.png" id="3_ktjr4"]
+[ext_resource type="Script" uid="uid://cb4wv5s31n7jk" path="res://components/combat/Hitbox.gd" id="4_fkugw"]
+[ext_resource type="Script" uid="uid://byrt5hlv2fhrp" path="res://components/combat/Damageable.gd" id="7_qiwj3"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_7wueq"]
+frame_0/texture = ExtResource("3_ktjr4")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
+size = Vector2(10, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ru62r"]
+radius = 294.46222
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bectd"]
+size = Vector2(12, 34)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1443376410 groups=["player"]]
+z_index = 10
+position = Vector2(24, 15)
+collision_mask = 3
+script = ExtResource("1_15tap")
+base_fire_rate = 1.0
+bullet_scene = ExtResource("2_ru62r")
+bouncing_bullet_scene = ExtResource("3_8fjmc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=848514292]
+position = Vector2(-4.999996, 7)
+scale = Vector2(1.0625, 1.375)
+texture = SubResource("AnimatedTexture_7wueq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=950583572]
+position = Vector2(-5, 7)
+shape = SubResource("RectangleShape2D_qhqgy")
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=814629127]
+
+[node name="AutoAim" type="Area2D" parent="." unique_id=784051595]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AutoAim" unique_id=271791433]
+position = Vector2(-4, 10)
+shape = SubResource("CircleShape2D_ru62r")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1517424923]
+script = ExtResource("4_fkugw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1925317024]
+position = Vector2(-5, 7)
+shape = SubResource("RectangleShape2D_bectd")
+debug_color = Color(0.7133657, 0.25997654, 1, 0.41960785)
+
+[node name="Damageable" type="Node" parent="." unique_id=1809881103]
+script = ExtResource("7_qiwj3")

@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://ba6wa36wy7hlt"]
+
+[ext_resource type="Script" uid="uid://bgllcghxp8cst" path="res://entities/enemies/common/Explosive(Suicide_Variant)/ExplosiveEnemy.gd" id="1_explosive"]
+[ext_resource type="PackedScene" uid="uid://bukux6umgnwli" path="res://entities/items/ExperienceGem.tscn" id="2_gem"]
+[ext_resource type="Script" uid="uid://b5smixm7242yb" path="res://components/combat/Hurtbox.gd" id="3_hurtbox"]
+[ext_resource type="Script" uid="uid://cb4wv5s31n7jk" path="res://components/combat/Hitbox.gd" id="4_hitbox"]
+[ext_resource type="Script" uid="uid://byrt5hlv2fhrp" path="res://components/combat/Damageable.gd" id="5_damageable"]
+[ext_resource type="Shader" uid="uid://bhomcu6h4q0wc" path="res://entities/enemies/common/EnemyColor.gdshader" id="6_shader"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_body"]
+radius = 14.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_explosive"]
+shader = ExtResource("6_shader")
+shader_parameter/flash_modifier = 0.0
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_183sh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hitbox"]
+radius = 16.0
+
+[node name="ExplosiveEnemy" type="CharacterBody2D" unique_id=637283968 groups=["enemies"]]
+modulate = Color(1, 0.67, 0, 1)
+collision_layer = 2
+script = ExtResource("1_explosive")
+exp_gem_scene = ExtResource("2_gem")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=361937548]
+shape = SubResource("CircleShape2D_body")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=981896990]
+modulate = Color(1, 0.67, 0, 1)
+material = SubResource("ShaderMaterial_explosive")
+position = Vector2(0, 0.49999976)
+scale = Vector2(28, 29)
+texture = SubResource("CanvasTexture_183sh")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1935010431]
+collision_layer = 0
+script = ExtResource("3_hurtbox")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=582722371]
+shape = SubResource("CircleShape2D_hitbox")
+debug_color = Color(1, 0.67, 0, 0.4)
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=2140378354]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("4_hitbox")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1265689664]
+shape = SubResource("CircleShape2D_hitbox")
+debug_color = Color(1, 0.5, 0, 0.4)
+
+[node name="Damageable" type="Node" parent="." unique_id=1494389879]
+script = ExtResource("5_damageable")
+max_health = 15.0

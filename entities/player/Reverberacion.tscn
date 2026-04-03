@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://breverb01"]
+
+[ext_resource type="PackedScene" uid="uid://ta31i7jhjt3k" path="res://entities/player/player.tscn" id="1_base"]
+[ext_resource type="Script" path="res://entities/player/Reverberacion.gd" id="2_script"]
+
+[node name="Player" type="CharacterBody2D" parent="." instance=ExtResource("1_base")]
+script = ExtResource("2_script")

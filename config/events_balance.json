@@ -1,0 +1,42 @@
+{
+  "stampede": {
+    "enemy_count_min": 30,
+    "enemy_count_max": 40,
+    "speed_multiplier": 1.5,
+    "spawn_delay": 0.08,
+    "difficulty_rating": 3
+  },
+  "elite_wave": {
+    "elite_count_min": 3,
+    "elite_count_max": 5,
+    "spawn_delay": 0.4,
+    "difficulty_rating": 4
+  },
+  "darkness": {
+    "duration": 30.0,
+    "light_reduction": 0.3,
+    "spawn_rate": 1.5,
+    "spawn_enabled": true,
+    "difficulty_rating": 4
+  },
+  "artillery_rain": {
+    "duration": 20.0,
+    "projectile_rate": 0.8,
+    "artillery_count": 5,
+    "warning_time": 1.5,
+    "damage": 50.0,
+    "difficulty_rating": 3
+  },
+  "king_of_hill": {
+    "required_time": 15.0,
+    "zone_radius": 150.0,
+    "reward_fragments": 50,
+    "difficulty_rating": 3
+  },
+  "chaos": {
+    "duration": 30.0,
+    "spawn_count": 2,
+    "duplicate_health": 0.5,
+    "difficulty_rating": 5
+  }
+}

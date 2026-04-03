@@ -1,0 +1,11 @@
+{
+  "player": {"base_hp": 100, "base_damage": 10, "base_speed": 220},
+  "enemies": {
+	"standard": {"hp": 20, "damage": 5, "speed": 80, "xp_value": 1},
+	"fast": {"hp": 15, "damage": 4, "speed": 140, "xp_value": 1},
+	"tank": {"hp": 80, "damage": 12, "speed": 50, "xp_value": 5},
+	"artillery": {"hp": 40, "damage": 20, "speed": 40, "xp_value": 3},
+	"explosive": {"hp": 25, "damage": 35, "speed": 90, "xp_value": 4}
+  },
+  "difficulty_scaling": {"hp_per_wave": 1.15, "damage_per_wave": 1.08, "spawn_rate_per_wave": 1.10}
+}
