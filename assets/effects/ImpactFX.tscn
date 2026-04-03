@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c3impactfx001"]
+
+[ext_resource type="Script" path="res://assets/effects/ImpactFX.gd" id="1_fx"]
+
+[node name="ImpactFX" type="Node2D"]
+script = ExtResource("1_fx")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 8
+lifetime = 0.25
+one_shot = true
+spread = 180.0
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+color = Color(1, 0.95, 0.5, 1)
