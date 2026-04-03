@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cljk8ec5hsb0w"
+path="res://.godot/imported/ES_Software, Interface, Pop Up, Notification, Classic - Epidemic Sound.wav-fc0d9c256a1d9b20c2188632def8c7e9.sample"
+
+[deps]
+
+source_file="res://assets/audio/button/ES_Software, Interface, Pop Up, Notification, Classic - Epidemic Sound.wav"
+dest_files=["res://.godot/imported/ES_Software, Interface, Pop Up, Notification, Classic - Epidemic Sound.wav-fc0d9c256a1d9b20c2188632def8c7e9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

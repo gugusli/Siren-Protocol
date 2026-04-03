@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://bolfph7ea4t28"]
+
+[ext_resource type="Script" path="res://assets/effects/FutureEnemies/EnemyDeathFX.gd" id="1_fx"]
+
+[node name="EnemyDeathFx" type="Node2D"]
+scale = Vector2(0.7, 0.7)
+script = ExtResource("1_fx")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 12
+lifetime = 0.4
+one_shot = true
+spread = 100.0
+initial_velocity_min = 120.0
+initial_velocity_max = 120.0
+color = Color(1, 0.74727106, 0.7031287, 1)

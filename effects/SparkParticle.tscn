@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://spark_particle_vfx"]
+
+[ext_resource type="Script" path="res://assets/effects/SparkParticle.gd" id="1_script"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_spark"]
+size = Vector2(4, 4)
+
+[node name="SparkParticle" type="Sprite2D"]
+texture = SubResource("PlaceholderTexture2D_spark")
+script = ExtResource("1_script")

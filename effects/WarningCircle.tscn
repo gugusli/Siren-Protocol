@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://warning_circle"]
+
+[ext_resource type="Script" path="res://assets/effects/WarningCircle.gd" id="1"]
+
+[node name="WarningCircle" type="Sprite2D"]
+z_index = 90
+script = ExtResource("1")
