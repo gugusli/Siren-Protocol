@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://damage_number_vfx"]
-
-[ext_resource type="Script" path="res://assets/effects/DamageNumber.gd" id="1_script"]
-
-[node name="DamageNumber" type="Label"]
-script = ExtResource("1_script")
