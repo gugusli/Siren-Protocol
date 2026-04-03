@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://coptions01"]
+
+[ext_resource type="Script" uid="uid://dvjimglsogpch" path="res://ui/menus/options_menu/OptionsMenu.gd" id="1_script"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.06, 0.06, 0.08, 0.98)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.4, 0.4, 0.4, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="OptionsMenu" type="CanvasLayer" unique_id=445206195]
+layer = 20
+script = ExtResource("1_script")
+
+[node name="Panel" type="Panel" parent="." unique_id=1936768978]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -220.0
+offset_right = 280.0
+offset_bottom = 220.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="Margin" type="MarginContainer" parent="Panel" unique_id=454412125]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBox" type="VBoxContainer" parent="Panel/Margin" unique_id=1133249473]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Title" type="Label" parent="Panel/Margin/VBox" unique_id=992419927]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "CONFIGURACION"
+
+[node name="MasterVolume" type="HBoxContainer" parent="Panel/Margin/VBox" unique_id=1845600362]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Label" type="Label" parent="Panel/Margin/VBox/MasterVolume" unique_id=59881887]
+layout_mode = 2
+text = "Volumen general"
+
+[node name="MasterSlider" type="HSlider" parent="Panel/Margin/VBox/MasterVolume" unique_id=1721554511]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="MusicVolume" type="HBoxContainer" parent="Panel/Margin/VBox" unique_id=455208986]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Label" type="Label" parent="Panel/Margin/VBox/MusicVolume" unique_id=1536965452]
+layout_mode = 2
+text = "Musica"
+
+[node name="MusicSlider" type="HSlider" parent="Panel/Margin/VBox/MusicVolume" unique_id=1060968921]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="SfxVolume" type="HBoxContainer" parent="Panel/Margin/VBox" unique_id=1538576463]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Label" type="Label" parent="Panel/Margin/VBox/SfxVolume" unique_id=1607231504]
+layout_mode = 2
+text = "Efectos"
+
+[node name="SfxSlider" type="HSlider" parent="Panel/Margin/VBox/SfxVolume" unique_id=2028950622]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.05
+
+[node name="ScreenShakeCheck" type="CheckButton" parent="Panel/Margin/VBox" unique_id=73132745]
+layout_mode = 2
+button_pressed = true
+text = "Vibracion de pantalla"
+
+[node name="DamageNumbersCheck" type="CheckButton" parent="Panel/Margin/VBox" unique_id=905132514]
+layout_mode = 2
+button_pressed = true
+text = "Números de daño"
+
+[node name="FullscreenCheck" type="CheckButton" parent="Panel/Margin/VBox" unique_id=1993634940]
+layout_mode = 2
+text = "Pantalla completa"
+
+[node name="BackButton" type="Button" parent="Panel/Margin/VBox" unique_id=1821652354]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+text = "VOLVER"

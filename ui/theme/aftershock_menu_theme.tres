@@ -1,0 +1,146 @@
+[gd_resource type="Theme" format=3 uid="uid://dje76bqyupdlr"]
+
+[ext_resource type="FontFile" uid="uid://bv34lk3jkobqe" path="res://assets/fonts/Roboto/static/Roboto-Regular.ttf" id="1_roboto"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ButtonPrimary_hover"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.14, 0.14, 0.16, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0.851, 1, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+corner_detail = 4
+shadow_color = Color(0, 0.851, 1, 0.6)
+shadow_size = 28
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ButtonPrimary_normal"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.102, 0.102, 0.102, 0.98)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.8, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+corner_detail = 4
+shadow_color = Color(0.8, 0, 0, 0.45)
+shadow_size = 22
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ButtonPrimary_pressed"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.08, 0.08, 0.09, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.6, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+corner_detail = 4
+shadow_color = Color(0.6, 0, 0, 0.3)
+shadow_size = 18
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ButtonSecondary_hover"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.1, 0.1, 0.12, 0.7)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.851, 1, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+corner_detail = 4
+shadow_color = Color(0, 0.851, 1, 0.4)
+shadow_size = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ButtonSecondary_normal"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.06, 0.06, 0.07, 0.5)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.35, 0.35, 0.38, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+corner_detail = 4
+shadow_color = Color(0, 0, 0, 0.2)
+shadow_size = 6
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ButtonSecondary_pressed"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.04, 0.04, 0.05, 0.6)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.25, 0.25, 0.28, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+corner_detail = 4
+shadow_color = Color(0, 0, 0, 0.15)
+shadow_size = 4
+
+[resource]
+default_font = ExtResource("1_roboto")
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 0.9)
+Button/constants/outline_size = 2
+Button/font_sizes/font_size = 20
+Button/fonts/font = ExtResource("1_roboto")
+ButtonPrimary/base_type = &"Button"
+ButtonPrimary/colors/font_color = Color(1, 1, 1, 1)
+ButtonPrimary/colors/font_outline_color = Color(0, 0, 0, 0.9)
+ButtonPrimary/constants/outline_size = 2
+ButtonPrimary/font_sizes/font_size = 24
+ButtonPrimary/fonts/font = ExtResource("1_roboto")
+ButtonPrimary/styles/focus = SubResource("StyleBoxFlat_ButtonPrimary_hover")
+ButtonPrimary/styles/hover = SubResource("StyleBoxFlat_ButtonPrimary_hover")
+ButtonPrimary/styles/normal = SubResource("StyleBoxFlat_ButtonPrimary_normal")
+ButtonPrimary/styles/pressed = SubResource("StyleBoxFlat_ButtonPrimary_pressed")
+ButtonSecondary/base_type = &"Button"
+ButtonSecondary/colors/font_color = Color(0.8, 0.8, 0.8, 1)
+ButtonSecondary/colors/font_outline_color = Color(0, 0, 0, 0.7)
+ButtonSecondary/constants/outline_size = 2
+ButtonSecondary/font_sizes/font_size = 18
+ButtonSecondary/fonts/font = ExtResource("1_roboto")
+ButtonSecondary/styles/focus = SubResource("StyleBoxFlat_ButtonSecondary_hover")
+ButtonSecondary/styles/hover = SubResource("StyleBoxFlat_ButtonSecondary_hover")
+ButtonSecondary/styles/normal = SubResource("StyleBoxFlat_ButtonSecondary_normal")
+ButtonSecondary/styles/pressed = SubResource("StyleBoxFlat_ButtonSecondary_pressed")

@@ -1,0 +1,228 @@
+[gd_scene format=3 uid="uid://bshtvywvd0n5t"]
+
+[ext_resource type="Script" uid="uid://66pg43jhqceo" path="res://ui/menus/end_screen/EndScreen.gd" id="1_script"]
+
+[sub_resource type="Environment" id="Environment_end"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 2.0
+glow_strength = 1.1
+glow_bloom = 0.3
+glow_blend_mode = 0
+
+[sub_resource type="Shader" id="Shader_glitch"]
+code = "shader_type canvas_item;
+uniform float intensity : hint_range(0, 1) = 0.05;
+uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
+
+void fragment() {
+	vec2 uv = SCREEN_UV;
+	float noise = fract(sin(dot(uv, vec2(12.9898, 78.233) + TIME)) * 43758.5453);
+	if (noise < intensity) {
+		uv.x += sin(TIME * 10.0) * 0.02;
+	}
+	vec4 color = texture(SCREEN_TEXTURE, uv);
+	color.r = texture(SCREEN_TEXTURE, uv + vec2(0.005, 0.0)).r;
+	color.b = texture(SCREEN_TEXTURE, uv - vec2(0.005, 0.0)).b;
+	COLOR = color * vec4(1.0, 0.8, 0.8, 1.0);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_overlay"]
+shader = SubResource("Shader_glitch")
+shader_parameter/intensity = 0.02
+
+[sub_resource type="Curve" id="Curve_particles"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.05, 0.01, 0.01, 0.92)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.1, 0.1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_color = Color(1, 0, 0, 0.1)
+shadow_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_title"]
+font_size = 58
+font_color = Color(1, 0.15, 0.15, 1)
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 15
+shadow_color = Color(1, 0, 0, 0.2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_subtitle"]
+font_size = 18
+font_color = Color(0.6, 0.6, 0.6, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_stat_label"]
+font_color = Color(0.5, 0.5, 0.5, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_stat_value"]
+font_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_normal"]
+content_margin_left = 20.0
+bg_color = Color(0.1, 0.02, 0.02, 1)
+border_width_left = 2
+border_color = Color(0.8, 0.1, 0.1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+content_margin_left = 30.0
+bg_color = Color(0.8, 0.1, 0.1, 0.2)
+border_width_left = 8
+border_color = Color(1, 1, 1, 1)
+
+[node name="EndScreen" type="CanvasLayer" unique_id=1164801754]
+process_mode = 3
+layer = 128
+script = ExtResource("1_script")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1753434610]
+environment = SubResource("Environment_end")
+
+[node name="BackgroundBlur" type="ColorRect" parent="." unique_id=1508649906]
+material = SubResource("ShaderMaterial_overlay")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.47)
+
+[node name="RedAshParticles" type="CPUParticles2D" parent="." unique_id=1560860801]
+position = Vector2(576, 700)
+amount = 30
+lifetime = 4.0
+preprocess = 2.0
+emission_shape = 3
+emission_rect_extents = Vector2(600, 1)
+direction = Vector2(0, -1)
+spread = 20.0
+gravity = Vector2(0, -20)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_particles")
+color = Color(1, 0.2, 0.2, 0.4)
+
+[node name="MainControl" type="Control" parent="." unique_id=867599500]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="MainControl" unique_id=79883976]
+custom_minimum_size = Vector2(550, 450)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -447.0
+offset_top = -229.0
+offset_right = 275.0
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="VBox" type="VBoxContainer" parent="MainControl/Panel" unique_id=619450342]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = -40.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="Title" type="Label" parent="MainControl/Panel/VBox" unique_id=1027073668]
+layout_mode = 2
+text = "PROTOCOLO ABORTADO"
+label_settings = SubResource("LabelSettings_title")
+horizontal_alignment = 1
+
+[node name="StatusMsg" type="Label" parent="MainControl/Panel/VBox" unique_id=336158863]
+layout_mode = 2
+text = "CONEXIÓN NEURAL PERDIDA - DISTRITO 0"
+label_settings = SubResource("LabelSettings_subtitle")
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MainControl/Panel/VBox" unique_id=55749606]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="StatsGrid" type="GridContainer" parent="MainControl/Panel/VBox" unique_id=1055346510]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="LabelTime" type="Label" parent="MainControl/Panel/VBox/StatsGrid" unique_id=2117349287]
+layout_mode = 2
+text = "TIEMPO DE ACTIVIDAD:"
+label_settings = SubResource("LabelSettings_stat_label")
+
+[node name="ValueTime" type="Label" parent="MainControl/Panel/VBox/StatsGrid" unique_id=1406925221]
+layout_mode = 2
+text = "00:00"
+label_settings = SubResource("LabelSettings_stat_value")
+
+[node name="LabelKills" type="Label" parent="MainControl/Panel/VBox/StatsGrid" unique_id=1488621640]
+layout_mode = 2
+text = "AMENAZAS ELIMINADAS:"
+label_settings = SubResource("LabelSettings_stat_label")
+
+[node name="ValueKills" type="Label" parent="MainControl/Panel/VBox/StatsGrid" unique_id=1984997073]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_stat_value")
+
+[node name="LabelSinergy" type="Label" parent="MainControl/Panel/VBox/StatsGrid" unique_id=1030484092]
+layout_mode = 2
+text = "SINERGIAS CLAVE:"
+label_settings = SubResource("LabelSettings_stat_label")
+
+[node name="ValueSinergy" type="Label" parent="MainControl/Panel/VBox/StatsGrid" unique_id=1068270400]
+layout_mode = 2
+text = "Ninguna"
+label_settings = SubResource("LabelSettings_stat_value")
+
+[node name="Spacer" type="Control" parent="MainControl/Panel/VBox" unique_id=556949294]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Buttons" type="VBoxContainer" parent="MainControl/Panel/VBox" unique_id=556401355]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="RetryBtn" type="Button" parent="MainControl/Panel/VBox/Buttons" unique_id=1745486547]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "REINTENTAR DESPLIEGUE"
+alignment = 0
+
+[node name="QuitBtn" type="Button" parent="MainControl/Panel/VBox/Buttons" unique_id=21066165]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5, 0.5, 0.5, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "RETORNAR A BASE"
+alignment = 0

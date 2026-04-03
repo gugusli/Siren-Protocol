@@ -1,0 +1,290 @@
+[gd_scene format=4 uid="uid://ctj4b6mt2p4j4"]
+
+[ext_resource type="Script" uid="uid://uf03l3urvtv" path="res://levels/Arenas/Arena.gd" id="1_jsk3l"]
+[ext_resource type="PackedScene" uid="uid://bshtvywvd0n5t" path="res://ui/menus/end_screen/EndScreen.tscn" id="2_6tjdf"]
+[ext_resource type="PackedScene" uid="uid://dda455uqoyhxv" path="res://ui/menus/pause_menu/PauseMenu.tscn" id="2_pausemenu"]
+[ext_resource type="Script" uid="uid://5tsfs7362xg4" path="res://_autoloads/GameManager.gd" id="3_jaqa7"]
+[ext_resource type="Script" uid="uid://bnf7hksc4nueo" path="res://ui/menus/pause_menu/PauseMenu.gd" id="4_kgj71"]
+[ext_resource type="Script" uid="uid://c3yj6rspqc1mk" path="res://levels/wave_manager/WaveManager.gd" id="4_w3u8l"]
+[ext_resource type="PackedScene" uid="uid://b0us7n1mistyp" path="res://entities/enemies/common/Enemy.tscn" id="5_wiwub"]
+[ext_resource type="PackedScene" uid="uid://dpacdpnl0dimu" path="res://entities/enemies/bosses/boss.tscn" id="6_6tjdf"]
+[ext_resource type="PackedScene" uid="uid://b32jl5nl1va3p" path="res://entities/enemies/common/Weak(Common_Variant)/FastsEnemy.tscn" id="6_ojwpc"]
+[ext_resource type="PackedScene" uid="uid://ta31i7jhjt3k" path="res://entities/player/player.tscn" id="6_us8ql"]
+[ext_resource type="PackedScene" uid="uid://by8i84shkgnho" path="res://ui/hud/hud.tscn" id="7_ojwpc"]
+[ext_resource type="PackedScene" uid="uid://3ckehfmsd1qi" path="res://entities/enemies/common/Stronger(Common_Variant)/TankEnemy.tscn" id="7_wy5yv"]
+[ext_resource type="PackedScene" uid="uid://bm0gtxvejr7yn" path="res://entities/enemies/common/Ranged(Artillery_Variant)/ArtilleryEnemy.tscn" id="8_artillery"]
+[ext_resource type="PackedScene" uid="uid://ba6wa36wy7hlt" path="res://entities/enemies/common/Explosive(Suicide_Variant)/ExplosiveEnemy.tscn" id="8_explosive"]
+[ext_resource type="PackedScene" uid="uid://bn7ky1bwh5ep6" path="res://ui/hud/UpgradeMenu.tscn" id="9_jaqa7"]
+[ext_resource type="Texture2D" uid="uid://v5kssjvo8ujf" path="res://assets/map/tileset_arranged.png" id="10_w3u8l"]
+[ext_resource type="Script" uid="uid://b7ja80bp8j42w" path="res://levels/Arenas/CameraController.gd" id="11_wiwub"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wiwub"]
+texture = ExtResource("10_w3u8l")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+15:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+15:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+15:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+12:6/0 = 0
+13:6/0 = 0
+14:6/0 = 0
+15:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+10:7/0 = 0
+11:7/0 = 0
+12:7/0 = 0
+13:7/0 = 0
+14:7/0 = 0
+15:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+9:8/0 = 0
+10:8/0 = 0
+11:8/0 = 0
+12:8/0 = 0
+13:8/0 = 0
+14:8/0 = 0
+15:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+9:9/0 = 0
+10:9/0 = 0
+11:9/0 = 0
+12:9/0 = 0
+13:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+6:10/0 = 0
+8:10/0 = 0
+9:10/0 = 0
+10:10/0 = 0
+11:10/0 = 0
+12:10/0 = 0
+13:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+6:11/0 = 0
+7:11/0 = 0
+8:11/0 = 0
+11:11/0 = 0
+12:11/0 = 0
+13:11/0 = 0
+0:12/0 = 0
+1:12/0 = 0
+2:12/0 = 0
+3:12/0 = 0
+6:12/0 = 0
+7:12/0 = 0
+8:12/0 = 0
+9:12/0 = 0
+10:12/0 = 0
+11:12/0 = 0
+12:12/0 = 0
+13:12/0 = 0
+0:13/0 = 0
+1:13/0 = 0
+2:13/0 = 0
+3:13/0 = 0
+4:13/0 = 0
+5:13/0 = 0
+6:13/0 = 0
+7:13/0 = 0
+8:13/0 = 0
+9:13/0 = 0
+10:13/0 = 0
+11:13/0 = 0
+13:13/0 = 0
+0:14/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+3:14/0 = 0
+4:14/0 = 0
+6:14/0 = 0
+7:14/0 = 0
+8:14/0 = 0
+9:14/0 = 0
+10:14/0 = 0
+11:14/0 = 0
+12:14/0 = 0
+13:14/0 = 0
+0:15/0 = 0
+1:15/0 = 0
+2:15/0 = 0
+3:15/0 = 0
+4:15/0 = 0
+5:15/0 = 0
+6:15/0 = 0
+7:15/0 = 0
+8:15/0 = 0
+9:15/0 = 0
+11:15/0 = 0
+12:15/0 = 0
+13:15/0 = 0
+14:15/0 = 0
+15:15/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_us8ql"]
+sources/0 = SubResource("TileSetAtlasSource_wiwub")
+
+[node name="Arena" type="Node2D" unique_id=1947628240]
+script = ExtResource("1_jsk3l")
+
+[node name="EndScreen" parent="." unique_id=1470077342 instance=ExtResource("2_6tjdf")]
+
+[node name="PauseMenu" parent="." unique_id=1218541540 instance=ExtResource("2_pausemenu")]
+script = ExtResource("4_kgj71")
+
+[node name="GameManager" type="Node" parent="." unique_id=1324069386]
+script = ExtResource("3_jaqa7")
+
+[node name="WaveManager" type="Node" parent="." unique_id=1942466191]
+script = ExtResource("4_w3u8l")
+standard_enemy_scene = ExtResource("5_wiwub")
+fast_enemy_scene = ExtResource("6_ojwpc")
+tank_enemy_scene = ExtResource("7_wy5yv")
+artillery_enemy_scene = ExtResource("8_artillery")
+explosive_enemy_scene = ExtResource("8_explosive")
+boss_scene = ExtResource("6_6tjdf")
+vertical_slice_mode = true
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1758314925]
+z_index = -1
+position = Vector2(12, -24)
+tile_map_data = PackedByteArray("AAAGAAsAAAAIAAcAAAAGAAwAAAAIAAcAAAAGAA0AAAAIAAcAAAAGAA4AAAAIAAcAAAAHAAsAAAAJAAcAAAAHAAwAAAAJAAgAAAAFAAsAAAANAAIAAAAFAAwAAAANAAIAAAAFAA0AAAANAAIAAAAFAA4AAAANAAIAAAAIAAsAAAANAAIAAAAIAAwAAAANAAIAAAAIAA0AAAANAAIAAAAIAA4AAAANAAIAAAA=")
+tile_set = SubResource("TileSet_us8ql")
+
+[node name="Player" parent="." unique_id=1380068917 instance=ExtResource("6_us8ql")]
+position = Vector2(960, 540)
+
+[node name="HUD" parent="." unique_id=1211770394 instance=ExtResource("7_ojwpc")]
+
+[node name="UpgradeMenu" parent="." unique_id=541730094 instance=ExtResource("9_jaqa7")]
+
+[node name="CameraController" type="Node2D" parent="." unique_id=2111629151 groups=["Camera"]]
+script = ExtResource("11_wiwub")
+
+[node name="Camera2D" type="Camera2D" parent="CameraController" unique_id=1478001917]

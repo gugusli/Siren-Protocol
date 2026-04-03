@@ -1,0 +1,206 @@
+[gd_scene format=3 uid="uid://by8i84shkgnho"]
+
+[ext_resource type="Script" uid="uid://d36vkmwc2dcrp" path="res://ui/hud/hud.gd" id="1"]
+
+[sub_resource type="StyleBoxFlat" id="2"]
+bg_color = Color(0.102, 0.102, 0.102, 0.85)
+border_width_left = 3
+border_color = Color(0, 0.851, 1, 0.9)
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+shadow_color = Color(0, 0, 0, 0.5)
+shadow_size = 10
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="StyleBoxFlat" id="3"]
+bg_color = Color(0.165, 0.165, 0.165, 0.95)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="4"]
+bg_color = Color(0, 1, 0.4, 1)
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0.5, 1, 0.7, 0.5)
+corner_radius_top_left = 3
+corner_radius_bottom_left = 3
+shadow_color = Color(0, 0.8, 0.3, 0.4)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="5"]
+bg_color = Color(0, 0.851, 1, 1)
+border_width_right = 2
+border_color = Color(1, 1, 1, 0.5)
+shadow_color = Color(0, 0.851, 1, 0.5)
+shadow_size = 8
+
+[node name="HUD" type="CanvasLayer" unique_id=1046295779]
+layer = 10
+script = ExtResource("1")
+
+[node name="StatsPanel" type="Panel" parent="." unique_id=1416942504]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 320.0
+offset_bottom = 120.0
+theme_override_styles/panel = SubResource("2")
+
+[node name="Margin" type="MarginContainer" parent="StatsPanel" unique_id=2094898296]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 12
+
+[node name="Content" type="VBoxContainer" parent="StatsPanel/Margin" unique_id=1204276662]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Header" type="HBoxContainer" parent="StatsPanel/Margin/Content" unique_id=816669029]
+layout_mode = 2
+
+[node name="LevelLabel" type="Label" parent="StatsPanel/Margin/Content/Header" unique_id=627080070]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0.85, 1, 1)
+theme_override_font_sizes/font_size = 14
+text = "SISTEMA OPERATIVO"
+vertical_alignment = 1
+
+[node name="LevelNumber" type="Label" parent="StatsPanel/Margin/Content/Header" unique_id=1228122617]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "LVL 01"
+horizontal_alignment = 2
+
+[node name="HPSection" type="VBoxContainer" parent="StatsPanel/Margin/Content" unique_id=1834975516]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="HealthBar" type="ProgressBar" parent="StatsPanel/Margin/Content/HPSection" unique_id=958901160]
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+theme_override_styles/background = SubResource("3")
+theme_override_styles/fill = SubResource("4")
+value = 100.0
+show_percentage = false
+
+[node name="HealthLabel" type="Label" parent="StatsPanel/Margin/Content/HPSection/HealthBar" unique_id=630236979]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 11
+text = "100 / 100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExpBar" type="ProgressBar" parent="StatsPanel/Margin/Content" unique_id=1323774782]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+theme_override_styles/fill = SubResource("5")
+value = 40.0
+show_percentage = false
+
+[node name="WaveLabel" type="Label" parent="." unique_id=873688428]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 25.0
+offset_right = 150.0
+offset_bottom = 65.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.9)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 26
+text = "— OLEADA 01 —"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SynergyIcons" type="HBoxContainer" parent="." unique_id=1909833867]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -160.0
+offset_top = 70.0
+offset_right = 160.0
+offset_bottom = 102.0
+grow_horizontal = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="SerenLabel" type="Label" parent="." unique_id=2000000000]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -24.0
+offset_top = 104.0
+offset_right = 24.0
+offset_bottom = 124.0
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 0.95)
+theme_override_font_sizes/font_size = 10
+text = "SEREN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimerLabel" type="Label" parent="." unique_id=1303249129]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -120.0
+offset_top = 8.0
+offset_right = -20.0
+offset_bottom = 38.0
+theme_override_colors/font_color = Color(1, 1, 1, 0.95)
+theme_override_font_sizes/font_size = 22
+text = "00:00"
+horizontal_alignment = 2
+
+[node name="IntensityLabel" type="Label" parent="." unique_id=769513130]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -220.0
+offset_top = 42.0
+offset_right = -20.0
+offset_bottom = 68.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0.85, 0.85, 0.85, 1)
+theme_override_font_sizes/font_size = 14
+text = "DIRECTOR: Calmado"
+horizontal_alignment = 2
+
+[node name="KingOfHillProgress" type="ProgressBar" parent="." unique_id=989616987]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.0
+offset_top = 100.0
+offset_right = 200.0
+offset_bottom = 140.0
+grow_horizontal = 2
+show_percentage = false
+
+[node name="AbilityButton" type="Button" parent="." unique_id=1340816699]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 844.0
+offset_top = -186.0
+offset_right = 944.0
+offset_bottom = -126.0
+grow_vertical = 0
+text = "HABILIDAD"

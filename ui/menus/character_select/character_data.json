@@ -1,0 +1,97 @@
+{
+	"RECLUTA": {
+		"display_name": "RECLUTA",
+		"description": "Equilibrado. Adaptabilidad.",
+		"role": "balanced",
+		"difficulty": 1,
+		"lore": "Soldado de las fuerzas regulares. Equipamiento estándar pero versátil para cualquier situación de combate.",
+		"stats": {
+			"hp": 100,
+			"speed": 5.0,
+			"armor": 10
+		},
+		"abilities": [
+			{"name": "Disparo Rápido", "icon": "res://assets/icons/ability_rapid.png"},
+			{"name": "Granada EMP", "icon": "res://assets/icons/ability_emp.png"},
+			{"name": "Escudo Temporal", "icon": "res://assets/icons/ability_shield.png"}
+		],
+		"sprite_idle": "res://assets/characters/recluta_idle.png",
+		"unlock_cost": 0
+	},
+	"FORTALEZA": {
+		"display_name": "FORTALEZA",
+		"description": "Tanque. Armadura pesada.",
+		"role": "tank",
+		"difficulty": 2,
+		"lore": "Unidad de asalto pesado. Sacrifica movilidad por resistencia extrema en el campo de batalla.",
+		"stats": {
+			"hp": 180,
+			"speed": 3.5,
+			"armor": 35
+		},
+		"abilities": [
+			{"name": "Muro Resonante", "icon": "res://assets/icons/ability_wall.png"},
+			{"name": "Carga Aplastante", "icon": "res://assets/icons/ability_charge.png"},
+			{"name": "Fortificar", "icon": "res://assets/icons/ability_fortify.png"}
+		],
+		"sprite_idle": "res://assets/characters/fortaleza_idle.png",
+		"unlock_cost": 50
+	},
+	"VÉRTICE": {
+		"display_name": "VÉRTICE",
+		"description": "Asesino. Dash mortal.",
+		"role": "assassin",
+		"difficulty": 3,
+		"lore": "Agente de infiltración. Alta movilidad y daño explosivo para eliminar objetivos prioritarios.",
+		"stats": {
+			"hp": 75,
+			"speed": 7.0,
+			"armor": 5
+		},
+		"abilities": [
+			{"name": "Dash Dimensional", "icon": "res://assets/icons/ability_dash.png"},
+			{"name": "Ejecución", "icon": "res://assets/icons/ability_execute.png"},
+			{"name": "Sigilo", "icon": "res://assets/icons/ability_stealth.png"}
+		],
+		"sprite_idle": "res://assets/characters/vertice_idle.png",
+		"unlock_cost": 75
+	},
+	"REVERBERACIÓN": {
+		"display_name": "REVERBERACIÓN",
+		"description": "Controlador. Torretas.",
+		"role": "controller",
+		"difficulty": 2,
+		"lore": "Ingeniero de campo. Domina el espacio mediante construcciones automatizadas y control de zona.",
+		"stats": {
+			"hp": 90,
+			"speed": 4.5,
+			"armor": 15
+		},
+		"abilities": [
+			{"name": "Torreta Mk-II", "icon": "res://assets/icons/ability_turret.png"},
+			{"name": "Campo de Fuerza", "icon": "res://assets/icons/ability_field.png"},
+			{"name": "Sobrecarga", "icon": "res://assets/icons/ability_overcharge.png"}
+		],
+		"sprite_idle": "res://assets/characters/reverberacion_idle.png",
+		"unlock_cost": 100
+	},
+	"ECO": {
+		"display_name": "ECO",
+		"description": "Híbrido. Resonancia corrupta.",
+		"role": "hybrid",
+		"difficulty": 3,
+		"lore": "Resultado de experimentos prohibidos. Poder inestable pero devastador que desafía las leyes naturales.",
+		"stats": {
+			"hp": 110,
+			"speed": 5.5,
+			"armor": 12
+		},
+		"abilities": [
+			{"name": "Pulso Corrupto", "icon": "res://assets/icons/ability_corrupt.png"},
+			{"name": "Dualidad", "icon": "res://assets/icons/ability_dual.png"},
+			{"name": "Colapso", "icon": "res://assets/icons/ability_collapse.png"}
+		],
+		"sprite_idle": "res://assets/characters/eco_idle.png",
+		"unlock_cost": 150
+	}
+}

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cstampede001"]
+
+[ext_resource type="Script" path="res://levels/events/StampedeEvent.gd" id="1"]
+
+[node name="StampedeEvent" type="Node2D"]
+script = ExtResource("1")

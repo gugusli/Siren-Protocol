@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cdarkness01"]
+
+[ext_resource type="Script" path="res://levels/events/DarknessEvent.gd" id="1"]
+
+[node name="DarknessEvent" type="Node2D"]
+script = ExtResource("1")

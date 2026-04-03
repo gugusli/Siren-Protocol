@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ckoth001"]
+
+[ext_resource type="Script" path="res://levels/events/KingOfHillEvent.gd" id="1"]
+
+[node name="KingOfHillEvent" type="Node2D"]
+script = ExtResource("1")
